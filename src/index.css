@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Cairo', 'Outfit', system-ui, -apple-system, sans-serif;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+/* Marquee chasing bulb animations */
+@keyframes bulbChaseA {
+  0%, 49% {
+    opacity: 1;
+    box-shadow: 0 0 6px 2px rgba(255, 215, 255, 0.95), 0 0 12px 3px rgba(232, 95, 255, 0.75);
+    transform: scale(1.1);
+  }
+  50%, 100% {
+    opacity: 0.35;
+    box-shadow: 0 0 2px rgba(255, 180, 255, 0.3);
+    transform: scale(0.85);
+  }
+}
+
+@keyframes bulbChaseB {
+  0%, 49% {
+    opacity: 0.35;
+    box-shadow: 0 0 2px rgba(255, 180, 255, 0.3);
+    transform: scale(0.85);
+  }
+  50%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 6px 2px rgba(255, 215, 255, 0.95), 0 0 12px 3px rgba(232, 95, 255, 0.75);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes centerDotBlinkA {
+  0%, 49% { opacity: 1; transform: scale(1.15); }
+  50%, 100% { opacity: 0.35; transform: scale(0.8); }
+}
+
+@keyframes centerDotBlinkB {
+  0%, 49% { opacity: 0.35; transform: scale(0.8); }
+  50%, 100% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0.35; transform: scale(0.75) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.18) rotate(22deg); }
+}
+
+@keyframes reelSpinFast {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes coinPop {
+  0% { transform: translateY(6px) scale(0.7); opacity: 0; }
+  35% { transform: translateY(-8px) scale(1.15); opacity: 1; }
+  100% { transform: translateY(-20px) scale(0.95); opacity: 0; }
+}
+
+@keyframes winPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 2.5px #7be8ff, 0 0 16px 3px rgba(68, 200, 255, 0.85), inset 0 0 24px rgba(56, 150, 255, 0.75);
+  }
+  50% {
+    box-shadow: 0 0 0 3px #ffffff, 0 0 26px 6px rgba(100, 225, 255, 1), inset 0 0 32px rgba(96, 185, 255, 0.95);
+  }
+}
+
+.animate-bulb-a {
+  animation: bulbChaseA 0.9s infinite;
+}
+.animate-bulb-b {
+  animation: bulbChaseB 0.9s infinite;
+}
+.animate-bulb-fast-a {
+  animation: bulbChaseA 0.28s infinite;
+}
+.animate-bulb-fast-b {
+  animation: bulbChaseB 0.28s infinite;
+}
+.animate-center-dot-a {
+  animation: centerDotBlinkA 0.7s infinite;
+}
+.animate-center-dot-b {
+  animation: centerDotBlinkB 0.7s infinite;
+}
+.animate-sparkle {
+  animation: sparkleTwinkle 1.1s ease-in-out infinite;
+}
+.animate-reel-spin {
+  animation: reelSpinFast 0.18s linear infinite;
+}
+.animate-coin-pop {
+  animation: coinPop 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-win-tile {
+  animation: winPulseGlow 0.65s ease-in-out infinite;
+}
+
+/* Custom thin scrollbar for modals */
+.arcade-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.arcade-scroll::-webkit-scrollbar-track {
+  background: rgba(25, 12, 58, 0.45);
+  border-radius: 999px;
+}
+.arcade-scroll::-webkit-scrollbar-thumb {
+  background: rgba(169, 147, 232, 0.55);
+  border-radius: 999px;
+}
